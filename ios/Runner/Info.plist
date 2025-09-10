@@ -52,5 +52,9 @@
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>This app needs location access to detect potholes and report their exact location.</string>
 	
+	<!-- Camera permission for pothole detection -->
+	<key>NSCameraUsageDescription</key>
+	<string>This app needs camera access to take photos of potholes for detection and reporting.</string>
+	
 </dict>
 </plist>
