@@ -1,0 +1,20 @@
+workflows:
+  ios-workflow:
+    name: iOS Build and TestFlight
+    environment:
+      groups:
+        - app_store_credentials # This group needs to be configured in Codemagic UI
+      vars:
+        XCODE_WORKSPACE: "Runner.xcworkspace"
+        XCODE_SCHEME: "Runner"
+        # BUNDLE_ID: "com.yourcompany.relygate" # This will be determined from the project
+    scripts:
+      - name: Flutter build ipa
+        script: |
+          flutter build ipa --release
+    artifacts:
+      - build/ios/ipa/*.ipa
+    publishing:
+      app_store_connect:
+        api_key: $APP_STORE_CONNECT_API_KEY # This needs to be configured in Codemagic UI
+        submit_to_testflight: true
