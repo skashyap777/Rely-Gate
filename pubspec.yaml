@@ -5,7 +5,7 @@ description: "A new Flutter project."
 publish_to: 'none'
 
 # Version: <major>.<minor>.<patch>+<build>
-# Apple requires each uploaded build number to be unique and higher than previous.
+# Increment the build number for every App Store upload
 version: 1.0.0+3
 
 environment:
