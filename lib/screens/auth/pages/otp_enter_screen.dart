@@ -59,6 +59,14 @@ class _OtpEnterScreenState extends State<OtpEnterScreen> {
 
                 ElevatedButton(
                   onPressed: () async {
+                    if (_otpController.text.length != 6) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text('Please enter a valid 6-digit OTP'),
+                        ),
+                      );
+                      return;
+                    }
                     final res = await store.verifyOtp(
                       widget.mobileNumber,
                       _otpController.text,
@@ -71,7 +79,19 @@ class _OtpEnterScreenState extends State<OtpEnterScreen> {
                         } else {
                           context.push("/completeProfile");
                         }
-                      } else {}
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('Failed to fetch profile data'),
+                          ),
+                        );
+                      }
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text('OTP verification failed'),
+                        ),
+                      );
                     }
                   },
                   style: ElevatedButton.styleFrom(

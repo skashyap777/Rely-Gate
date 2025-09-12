@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/widgets.dart';
@@ -35,17 +36,25 @@ class AuthProvider extends ChangeNotifier {
 
   Future<bool> verifyOtp(String mobileNumebr, String otp) async {
     try {
+      debugPrint("Verifying OTP for mobile: $mobileNumebr, OTP: $otp");
       final response = await apiService.post(
         url: "/auth/verify-otp",
         data: {"mobile": mobileNumebr, "otp": otp},
       );
+      debugPrint("OTP Verify Response Status: ${response.statusCode}");
+      debugPrint("OTP Verify Response Data: ${response.data}");
       if (response.statusCode == 200 || response.statusCode == 201) {
         otpverify = OTPVerifyModel.fromJson(response.data);
         await TokenHandler.setString("token", otpverify?.data?.token ?? "");
+        debugPrint(
+          "OTP verification successful, token saved: ${otpverify?.data?.token}",
+        );
         return true;
       }
+      debugPrint("OTP verification failed with status: ${response.statusCode}");
       return false;
     } catch (e) {
+      debugPrint("OTP verification error: $e");
       return false;
     } finally {}
   }
@@ -73,7 +82,10 @@ class AuthProvider extends ChangeNotifier {
 
   Future<bool> getProfileData() async {
     try {
+      debugPrint("Fetching profile data");
       final response = await apiService.get(url: "/profile");
+      debugPrint("Profile Response Status: ${response.statusCode}");
+      debugPrint("Profile Response Data: ${response.data}");
       if (response.statusCode == 200 || response.statusCode == 201) {
         profile = UserDetailsModel.fromJson(response.data);
         await TokenHandler.setString(
@@ -81,10 +93,13 @@ class AuthProvider extends ChangeNotifier {
           jsonEncode(profile?.data?.profile),
         );
         userData = Profile.fromJson(response.data);
+        debugPrint("Profile data fetched successfully");
         return true;
       }
+      debugPrint("Profile fetch failed with status: ${response.statusCode}");
       return false;
     } catch (e) {
+      debugPrint("Profile fetch error: $e");
       return false;
     } finally {}
   }

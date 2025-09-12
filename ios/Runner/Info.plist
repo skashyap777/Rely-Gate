@@ -55,6 +55,45 @@
 	<!-- Camera permission for pothole detection -->
 	<key>NSCameraUsageDescription</key>
 	<string>This app needs camera access to take photos of potholes for detection and reporting.</string>
-	
+
+	<!-- Photo library permission for image picker -->
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app needs access to your photo library to select images for pothole reporting.</string>
+
+	<!-- Microphone permission (if needed for any feature) -->
+	<key>NSMicrophoneUsageDescription</key>
+	<string>This app needs microphone access for certain features.</string>
+
+	<!-- Push notifications permission for Firebase -->
+	<key>NSUserNotificationsUsageDescription</key>
+	<string>This app needs notification permissions to send you updates about pothole reports.</string>
+
+	<!-- Google Maps API Key -->
+	<key>GMSServices</key>
+	<string>AIzaSyBU8zniWDcPMAUWkqIJ0iTmGbkF7jtRwzA</string>
+	<key>io.flutter.embedded_views_preview</key>
+	<true/>
+
+	<!-- App Transport Security for API domain -->
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<false/>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>pwd.mockify.org</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+				<false/>
+				<key>NSTemporaryExceptionMinimumTLSVersion</key>
+				<string>TLSv1.2</string>
+				<key>NSTemporaryExceptionRequiresForwardSecrecy</key>
+				<false/>
+			</dict>
+		</dict>
+	</dict>
+
 </dict>
 </plist>
