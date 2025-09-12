@@ -20,7 +20,7 @@ class HomeProvider extends ChangeNotifier {
   Future<bool> createPothole(FormData formData) async {
     try {
       final response = await apiService.post(
-        url: "/api/v1/pothole/create",
+        url: "/pothole/create",
         data: formData,
       );
       if (response.statusCode == 200 || response.statusCode == 201) {
