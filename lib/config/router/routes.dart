@@ -1,18 +1,18 @@
 import 'dart:io';
 
 import 'package:go_router/go_router.dart';
-import 'package:pothole/screens/auth/pages/complete_profile.dart';
-import 'package:pothole/screens/auth/pages/enable_location.dart';
-import 'package:pothole/screens/auth/pages/login.dart';
-import 'package:pothole/screens/auth/pages/onboarding.dart';
-import 'package:pothole/screens/auth/pages/otp_enter_screen.dart';
-import 'package:pothole/screens/auth/pages/splash.dart';
-import 'package:pothole/screens/auth/pages/welcome.dart';
-import 'package:pothole/screens/home/pages/home.dart';
-import 'package:pothole/screens/home/pages/pothole_detected_screen.dart';
-import 'package:pothole/screens/home/pages/pothole_scanner.dart';
-import 'package:pothole/screens/home/pages/scan_pothhole.dart';
-import 'package:pothole/screens/profile/pages/edit_profile.dart';
+import 'package:rudra/screens/auth/pages/complete_profile.dart';
+import 'package:rudra/screens/auth/pages/enable_location.dart';
+import 'package:rudra/screens/auth/pages/login.dart';
+import 'package:rudra/screens/auth/pages/onboarding.dart';
+import 'package:rudra/screens/auth/pages/otp_enter_screen.dart';
+import 'package:rudra/screens/auth/pages/splash.dart';
+import 'package:rudra/screens/auth/pages/welcome.dart';
+import 'package:rudra/screens/home/pages/home.dart';
+import 'package:rudra/screens/home/pages/pothole_detected_screen.dart';
+import 'package:rudra/screens/home/pages/pothole_scanner.dart';
+import 'package:rudra/screens/home/pages/scan_pothhole.dart';
+import 'package:rudra/screens/profile/pages/edit_profile.dart';
 
 class Routes {
   static final GoRouter router = GoRouter(

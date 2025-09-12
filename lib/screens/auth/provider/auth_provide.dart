@@ -2,12 +2,12 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/widgets.dart';
-import 'package:pothole/config/network/dio.dart';
-import 'package:pothole/config/utils/local_storage.dart';
-import 'package:pothole/screens/auth/models/check_location_model.dart';
-import 'package:pothole/screens/auth/models/location_model.dart';
-import 'package:pothole/screens/auth/models/otp_verify_model.dart';
-import 'package:pothole/screens/auth/models/user_details_model.dart';
+import 'package:rudra/config/network/dio.dart';
+import 'package:rudra/config/utils/local_storage.dart';
+import 'package:rudra/screens/auth/models/check_location_model.dart';
+import 'package:rudra/screens/auth/models/location_model.dart';
+import 'package:rudra/screens/auth/models/otp_verify_model.dart';
+import 'package:rudra/screens/auth/models/user_details_model.dart';
 
 class AuthProvider extends ChangeNotifier {
   final apiService = HTTP();

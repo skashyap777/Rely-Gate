@@ -1,0 +1,6 @@
+-dontwarn org.tensorflow.lite.gpu.GpuDelegateFactory
+-keep class org.tensorflow.lite.gpu.GpuDelegateFactory { *; }
+-keep class org.tensorflow.lite.gpu.DelegateFactory { *; }
+-keep class org.tensorflow.lite.gpu.RuntimeDirectContext { *; }
+-keep class org.tensorflow.lite.gpu.GpuDelegate { *; }
+-keep class org.tensorflow.lite.gpu.GpuDelegateFactory { *; }

@@ -1,9 +1,9 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:pothole/config/theme/app_pallet.dart';
-import 'package:pothole/config/utils/app_functions.dart';
-import 'package:pothole/screens/home/pages/dashboard.dart';
+import 'package:rudra/config/theme/app_pallet.dart';
+import 'package:rudra/config/utils/app_functions.dart';
+import 'package:rudra/screens/home/pages/dashboard.dart';
 
 class ScanPothhole extends StatefulWidget {
   final File file;
@@ -148,14 +148,14 @@ class _ScanPothholeState extends State<ScanPothhole>
 
           // Scanning Text
           const Text(
-            "Scanning for Pothole...",
+            "Scanning for Road Issue...",
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 10),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 30.0),
             child: Text(
-              "Please hold steady. We're analyzing the image to detect a pothole.",
+              "Please hold steady. We're analyzing the image to detect a road issue.",
               textAlign: TextAlign.center,
               style: TextStyle(color: Colors.black54, fontSize: 13),
             ),

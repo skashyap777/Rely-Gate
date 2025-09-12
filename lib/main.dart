@@ -1,12 +1,12 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:pothole/config/router/routes.dart';
-import 'package:pothole/config/theme/app_pallet.dart';
-import 'package:pothole/screens/auth/provider/auth_provide.dart';
-import 'package:pothole/screens/home/provider/home_provider.dart';
-import 'package:pothole/screens/notifications/provider/notification_provider.dart';
-import 'package:pothole/screens/profile/provider/profile_provider.dart';
-import 'package:pothole/screens/reports/provider/report_provider.dart';
+import 'package:rudra/config/router/routes.dart';
+import 'package:rudra/config/theme/app_pallet.dart';
+import 'package:rudra/screens/auth/provider/auth_provide.dart';
+import 'package:rudra/screens/home/provider/home_provider.dart';
+import 'package:rudra/screens/notifications/provider/notification_provider.dart';
+import 'package:rudra/screens/profile/provider/profile_provider.dart';
+import 'package:rudra/screens/reports/provider/report_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
           ],
           child: MaterialApp.router(
             debugShowCheckedModeBanner: false,
-            title: 'Rely Gate',
+            title: 'RUDRA',
             theme: ThemeData(
               elevatedButtonTheme: ElevatedButtonThemeData(
                 style: ElevatedButton.styleFrom(

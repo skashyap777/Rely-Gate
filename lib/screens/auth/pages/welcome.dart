@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:pothole/config/theme/app_pallet.dart';
-import 'package:pothole/config/utils/assets.dart';
+import 'package:rudra/config/theme/app_pallet.dart';
+import 'package:rudra/config/utils/assets.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});

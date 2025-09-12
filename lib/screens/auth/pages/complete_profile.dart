@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'dart:io';
 
-import 'package:pothole/config/utils/app_functions.dart';
-import 'package:pothole/screens/auth/provider/auth_provide.dart';
+import 'package:rudra/config/utils/app_functions.dart';
+import 'package:rudra/screens/auth/provider/auth_provide.dart';
 import 'package:provider/provider.dart';
 
 class CompleteProfileScreen extends StatefulWidget {

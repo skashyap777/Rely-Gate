@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pinput/pinput.dart';
-import 'package:pothole/config/theme/app_pallet.dart';
-import 'package:pothole/config/utils/assets.dart';
-import 'package:pothole/screens/auth/provider/auth_provide.dart';
+import 'package:rudra/config/theme/app_pallet.dart';
+import 'package:rudra/config/utils/assets.dart';
+import 'package:rudra/screens/auth/provider/auth_provide.dart';
 import 'package:provider/provider.dart';
 
 class OtpEnterScreen extends StatefulWidget {

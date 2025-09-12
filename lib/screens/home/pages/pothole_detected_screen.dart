@@ -1,10 +1,10 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:pothole/config/theme/app_pallet.dart';
-import 'package:pothole/config/utils/app_functions.dart';
-import 'package:pothole/screens/home/pages/dashboard.dart';
-import 'package:pothole/screens/home/provider/home_provider.dart';
+import 'package:rudra/config/theme/app_pallet.dart';
+import 'package:rudra/config/utils/app_functions.dart';
+import 'package:rudra/screens/home/pages/dashboard.dart';
+import 'package:rudra/screens/home/provider/home_provider.dart';
 import 'package:provider/provider.dart';
 
 class PotholeDetectedScreen extends StatelessWidget {
@@ -89,7 +89,7 @@ class PotholeDetectedScreen extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               const Text(
-                "The scanned image shows a clear pothole.",
+                "The scanned image shows a clear road issue.",
                 style: TextStyle(color: Colors.black54, fontSize: 14),
               ),
 

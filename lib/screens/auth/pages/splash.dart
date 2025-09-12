@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:pothole/config/utils/assets.dart';
-import 'package:pothole/config/utils/local_storage.dart';
+import 'package:rudra/config/utils/assets.dart';
+import 'package:rudra/config/utils/local_storage.dart';
 
 class Splash extends StatefulWidget {
   const Splash({super.key});

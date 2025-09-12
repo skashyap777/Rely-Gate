@@ -4,8 +4,8 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:pothole/config/theme/app_pallet.dart';
-import 'package:pothole/screens/home/provider/home_provider.dart';
+import 'package:rudra/config/theme/app_pallet.dart';
+import 'package:rudra/screens/home/provider/home_provider.dart';
 import 'package:provider/provider.dart';
 
 // class PotholeScanner extends StatefulWidget {

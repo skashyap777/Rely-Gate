@@ -11,25 +11,32 @@ class AppFunctions {
       return null;
     }
 
-    var status = await Permission.location.request();
-
-    if (status.isGranted) {
-      try {
-        Position position = await Geolocator.getCurrentPosition(
-          desiredAccuracy: LocationAccuracy.high,
-        );
-        return position;
-      } catch (e) {
+    // Use Geolocator's permission system instead of permission_handler
+    LocationPermission permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied) {
+        // Permission denied - stay in app, don't redirect to settings
         return null;
       }
-    } else if (status.isDenied) {
-      return null;
-    } else if (status.isPermanentlyDenied) {
-      openAppSettings();
+    }
+
+    if (permission == LocationPermission.deniedForever) {
+      // Permission permanently denied - stay in app, don't redirect to settings
       return null;
     }
 
-    return null;
+    // Permission granted, get current position
+    try {
+      Position position = await Geolocator.getCurrentPosition(
+        locationSettings: const LocationSettings(
+          accuracy: LocationAccuracy.high,
+        ),
+      );
+      return position;
+    } catch (e) {
+      return null;
+    }
   }
 
   static Future<File?> captureImageFromCamera() async {

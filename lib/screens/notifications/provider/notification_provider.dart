@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pothole/config/network/dio.dart';
-import 'package:pothole/screens/notifications/models/notifiction_model.dart';
+import 'package:rudra/config/network/dio.dart';
+import 'package:rudra/screens/notifications/models/notifiction_model.dart';
 
 class NotificationProvider extends ChangeNotifier {
   final apiService = HTTP();

@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:pothole/config/utils/local_storage.dart';
+import 'package:rudra/config/utils/local_storage.dart';
 
 Future<Dio> createBaseDio() async {
   final String baseUrl = "https://pwd.mockify.org/api/v1";

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:pothole/config/theme/app_pallet.dart';
-import 'package:pothole/config/utils/assets.dart';
+import 'package:rudra/config/theme/app_pallet.dart';
+import 'package:rudra/config/utils/assets.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -18,7 +18,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     {
       'title': 'Spot it. Report it. Fix it.',
       'subtitle':
-          'Empowering citizens to report potholes instantly and make roads safer for everyone.',
+          'Empowering citizens to report road issues instantly and make roads safer for everyone.',
       'image': Assets.firstOnboarding, // Replace with your image assets
     },
     {

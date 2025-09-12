@@ -1,11 +1,11 @@
 {
-    "name": "pothole",
-    "short_name": "pothole",
+    "name": "RUDRA",
+    "short_name": "RUDRA",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "RUDRA - Road Maintenance Reporting App.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

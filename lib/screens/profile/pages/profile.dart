@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:pothole/config/theme/app_pallet.dart';
-import 'package:pothole/config/utils/assets.dart';
-import 'package:pothole/config/utils/local_storage.dart';
-import 'package:pothole/screens/profile/provider/profile_provider.dart';
+import 'package:rudra/config/theme/app_pallet.dart';
+import 'package:rudra/config/utils/assets.dart';
+import 'package:rudra/config/utils/local_storage.dart';
+import 'package:rudra/screens/profile/provider/profile_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 

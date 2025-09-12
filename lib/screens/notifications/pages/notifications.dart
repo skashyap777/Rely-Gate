@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pothole/config/theme/app_pallet.dart';
-import 'package:pothole/screens/notifications/models/notifiction_model.dart';
-import 'package:pothole/screens/notifications/provider/notification_provider.dart';
+import 'package:rudra/config/theme/app_pallet.dart';
+import 'package:rudra/screens/notifications/models/notifiction_model.dart';
+import 'package:rudra/screens/notifications/provider/notification_provider.dart';
 import 'package:provider/provider.dart';
 
 class Notifications extends StatefulWidget {

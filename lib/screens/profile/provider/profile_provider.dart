@@ -3,9 +3,9 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:pothole/config/network/dio.dart';
-import 'package:pothole/config/utils/local_storage.dart';
-import 'package:pothole/screens/profile/models/profile_model.dart';
+import 'package:rudra/config/network/dio.dart';
+import 'package:rudra/config/utils/local_storage.dart';
+import 'package:rudra/screens/profile/models/profile_model.dart';
 
 class ProfileProvider extends ChangeNotifier {
   final apiService = HTTP();

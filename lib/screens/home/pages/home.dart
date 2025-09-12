@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:pothole/config/theme/app_pallet.dart';
-import 'package:pothole/config/utils/assets.dart';
-import 'package:pothole/screens/home/pages/dashboard.dart';
-import 'package:pothole/screens/notifications/pages/notifications.dart';
-import 'package:pothole/screens/profile/pages/profile.dart';
-import 'package:pothole/screens/reports/pages/report.dart';
+import 'package:rudra/config/theme/app_pallet.dart';
+import 'package:rudra/config/utils/assets.dart';
+import 'package:rudra/screens/home/pages/dashboard.dart';
+import 'package:rudra/screens/notifications/pages/notifications.dart';
+import 'package:rudra/screens/profile/pages/profile.dart';
+import 'package:rudra/screens/reports/pages/report.dart';
 import 'package:sizer/sizer.dart';
 
 class Home extends StatefulWidget {

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
-import 'package:pothole/config/utils/app_functions.dart';
-import 'package:pothole/config/utils/assets.dart';
-import 'package:pothole/screens/profile/provider/profile_provider.dart';
+import 'package:rudra/config/utils/app_functions.dart';
+import 'package:rudra/config/utils/assets.dart';
+import 'package:rudra/screens/profile/provider/profile_provider.dart';
 import 'package:provider/provider.dart';
 
 class EditProfile extends StatefulWidget {

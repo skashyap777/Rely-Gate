@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.techsavvy" "\0"
-            VALUE "FileDescription", "pothole" "\0"
+            VALUE "FileDescription", "RUDRA" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "pothole" "\0"
+            VALUE "InternalName", "RUDRA" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2025 com.techsavvy. All rights reserved." "\0"
-            VALUE "OriginalFilename", "pothole.exe" "\0"
-            VALUE "ProductName", "pothole" "\0"
+            VALUE "OriginalFilename", "RUDRA.exe" "\0"
+            VALUE "ProductName", "RUDRA" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

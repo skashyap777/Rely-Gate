@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pothole/config/network/dio.dart';
-import 'package:pothole/screens/reports/models/report_model.dart';
+import 'package:rudra/config/network/dio.dart';
+import 'package:rudra/screens/reports/models/report_model.dart';
 
 class ReportProvider extends ChangeNotifier {
   final apiService = HTTP();

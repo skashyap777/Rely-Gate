@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:pothole/config/theme/app_pallet.dart';
-import 'package:pothole/screens/notifications/pages/notifications.dart';
-import 'package:pothole/screens/reports/models/report_model.dart';
-import 'package:pothole/screens/reports/provider/report_provider.dart';
+import 'package:rudra/config/theme/app_pallet.dart';
+import 'package:rudra/screens/notifications/pages/notifications.dart';
+import 'package:rudra/screens/reports/models/report_model.dart';
+import 'package:rudra/screens/reports/provider/report_provider.dart';
 import 'package:provider/provider.dart';
 
 // class Report extends StatelessWidget {

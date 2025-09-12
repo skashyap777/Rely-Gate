@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:go_router/go_router.dart';
-import 'package:pothole/config/utils/app_functions.dart';
-import 'package:pothole/config/utils/assets.dart';
-import 'package:pothole/screens/auth/provider/auth_provide.dart';
+import 'package:rudra/config/utils/app_functions.dart';
+import 'package:rudra/config/utils/assets.dart';
+import 'package:rudra/screens/auth/provider/auth_provide.dart';
 import 'package:provider/provider.dart';
 
 class EnableLocation extends StatefulWidget {
@@ -74,15 +74,65 @@ class _EnableLocationState extends State<EnableLocation> {
                               if (position != null) {
                                 final res = await store.checkLocation(
                                   position!.latitude,
-                                  position!.latitude,
+                                  position!.longitude,
                                 );
                                 if (res) {
+                                  context.go("/login");
+                                } else {
                                   AppFunctions.showCustomSnackBar(
                                     context,
                                     "${store.checkLocationData?.message}",
-                                    backgroundColor: Colors.black,
+                                    backgroundColor: Colors.red,
                                   );
-                                } else {}
+                                }
+                              } else {
+                                // Try to get location again
+                                await getCurrentLocation();
+                                if (position != null) {
+                                  final res = await store.checkLocation(
+                                    position!.latitude,
+                                    position!.longitude,
+                                  );
+                                  if (res) {
+                                    context.go("/login");
+                                  } else {
+                                    AppFunctions.showCustomSnackBar(
+                                      context,
+                                      "${store.checkLocationData?.message}",
+                                      backgroundColor: Colors.red,
+                                    );
+                                  }
+                                } else {
+                                  // Show dialog with options instead of redirecting to settings
+                                  showDialog(
+                                    context: context,
+                                    builder:
+                                        (context) => AlertDialog(
+                                          title: const Text(
+                                            'Location Permission Required',
+                                          ),
+                                          content: const Text(
+                                            'This app needs location access to verify your area. You can either grant permission or skip this step.',
+                                          ),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () {
+                                                Navigator.pop(context);
+                                                context.go("/login");
+                                              },
+                                              child: const Text('Skip'),
+                                            ),
+                                            TextButton(
+                                              onPressed: () async {
+                                                Navigator.pop(context);
+                                                await getCurrentLocation();
+                                              },
+                                              child: const Text('Try Again'),
+                                            ),
+                                          ],
+                                        ),
+                                  );
+                                }
                               }
                             },
                             icon:
@@ -114,90 +164,7 @@ class _EnableLocationState extends State<EnableLocation> {
                             ),
                           ),
 
-                          const SizedBox(height: 24),
-
-                          const Text(
-                            'or',
-                            style: TextStyle(color: Colors.grey),
-                          ),
-
-                          const SizedBox(height: 24),
-
-                          TextField(
-                            controller: _pincodeController,
-                            keyboardType: TextInputType.number,
-                            inputFormatters: [
-                              FilteringTextInputFormatter.digitsOnly,
-                              LengthLimitingTextInputFormatter(7),
-                            ],
-                            decoration: InputDecoration(
-                              hintText: 'Enter your area Pincode',
-                              hintStyle: TextStyle(color: Colors.grey),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(5),
-                                borderSide: BorderSide(
-                                  width: 0.5,
-                                  color: Colors.grey,
-                                ),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(5),
-                                borderSide: BorderSide(
-                                  width: 0.5,
-                                  color: Colors.grey,
-                                ),
-                              ),
-                              contentPadding: const EdgeInsets.symmetric(
-                                horizontal: 16,
-                              ),
-                            ),
-                          ),
-
                           const SizedBox(height: 32),
-
-                          SizedBox(
-                            width: double.infinity,
-                            height: 48,
-                            child: ElevatedButton(
-                              onPressed: () async {
-                                final pincode = _pincodeController.text.trim();
-                                if (pincode.isEmpty || pincode.length < 6) {
-                                  AppFunctions.showCustomSnackBar(
-                                    context,
-                                    "Please Enter 7-digit Pincode",
-                                    backgroundColor: Colors.red,
-                                  );
-                                  return;
-                                }
-                                final res = await store.checkLocationWithpin(
-                                  int.parse(pincode),
-                                );
-                                if (res) {
-                                  context.go("/login");
-                                } else {
-                                  AppFunctions.showCustomSnackBar(
-                                    context,
-                                    "Service not available in your area",
-                                    backgroundColor: Colors.red,
-                                  );
-                                }
-                              },
-
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.amber.shade700,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                              ),
-                              child: const Text(
-                                'Verify My Location',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16,
-                                ),
-                              ),
-                            ),
-                          ),
                         ],
                       ),
             ),

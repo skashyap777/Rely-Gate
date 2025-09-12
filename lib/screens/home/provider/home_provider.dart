@@ -6,9 +6,9 @@ import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:pothole/config/network/dio.dart';
-import 'package:pothole/config/utils/local_storage.dart';
-import 'package:pothole/screens/auth/models/user_details_model.dart';
+import 'package:rudra/config/network/dio.dart';
+import 'package:rudra/config/utils/local_storage.dart';
+import 'package:rudra/screens/auth/models/user_details_model.dart';
 
 class HomeProvider extends ChangeNotifier {
   final apiService = HTTP();
