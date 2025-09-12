@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:geolocator/geolocator.dart';
@@ -15,7 +17,6 @@ class EnableLocation extends StatefulWidget {
 }
 
 class _EnableLocationState extends State<EnableLocation> {
-  final TextEditingController _pincodeController = TextEditingController();
   bool loading = false;
   Position? position;
 
@@ -71,21 +72,41 @@ class _EnableLocationState extends State<EnableLocation> {
 
                           OutlinedButton.icon(
                             onPressed: () async {
+                              debugPrint("Location button pressed");
                               if (position != null) {
+                                debugPrint(
+                                  "Position available: ${position!.latitude}, ${position!.longitude}",
+                                );
                                 final res = await store.checkLocation(
                                   position!.latitude,
                                   position!.longitude,
                                 );
                                 if (res) {
+                                  debugPrint(
+                                    "Location verification successful, navigating to login",
+                                  );
                                   context.go("/login");
                                 } else {
+                                  debugPrint(
+                                    "Location verification failed: ${store.checkLocationData?.message}",
+                                  );
+                                  String errorMessage =
+                                      store.checkLocationData?.message ??
+                                      "Location verification failed";
+                                  if (errorMessage.contains("not within")) {
+                                    errorMessage =
+                                        "Your location is not within PWD Assam jurisdiction. Please move to an area within Assam.";
+                                  }
                                   AppFunctions.showCustomSnackBar(
                                     context,
-                                    "${store.checkLocationData?.message}",
+                                    errorMessage,
                                     backgroundColor: Colors.red,
                                   );
                                 }
                               } else {
+                                debugPrint(
+                                  "Position is null, attempting to get location again",
+                                );
                                 // Try to get location again
                                 await getCurrentLocation();
                                 if (position != null) {
@@ -96,14 +117,21 @@ class _EnableLocationState extends State<EnableLocation> {
                                   if (res) {
                                     context.go("/login");
                                   } else {
+                                    String errorMessage =
+                                        store.checkLocationData?.message ??
+                                        "Location verification failed";
+                                    if (errorMessage.contains("not within")) {
+                                      errorMessage =
+                                          "Your location is not within PWD Assam jurisdiction. Please move to an area within Assam.";
+                                    }
                                     AppFunctions.showCustomSnackBar(
                                       context,
-                                      "${store.checkLocationData?.message}",
+                                      errorMessage,
                                       backgroundColor: Colors.red,
                                     );
                                   }
                                 } else {
-                                  // Show dialog with options instead of redirecting to settings
+                                  // Show dialog requiring location permission
                                   showDialog(
                                     context: context,
                                     builder:
@@ -112,16 +140,9 @@ class _EnableLocationState extends State<EnableLocation> {
                                             'Location Permission Required',
                                           ),
                                           content: const Text(
-                                            'This app needs location access to verify your area. You can either grant permission or skip this step.',
+                                            'This app requires location access to verify your area within PWD Assam jurisdiction. Please grant location permission to continue.',
                                           ),
                                           actions: [
-                                            TextButton(
-                                              onPressed: () {
-                                                Navigator.pop(context);
-                                                context.go("/login");
-                                              },
-                                              child: const Text('Skip'),
-                                            ),
                                             TextButton(
                                               onPressed: () async {
                                                 Navigator.pop(context);

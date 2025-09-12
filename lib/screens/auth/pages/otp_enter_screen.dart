@@ -74,7 +74,8 @@ class _OtpEnterScreenState extends State<OtpEnterScreen> {
                     if (res) {
                       final res = await store.getProfileData();
                       if (res) {
-                        if (store.profile!.data!.profile!.name!.isNotEmpty) {
+                        if (store.profile!.data!.profile!.name != null &&
+                            store.profile!.data!.profile!.name!.isNotEmpty) {
                           context.push("/home");
                         } else {
                           context.push("/completeProfile");
